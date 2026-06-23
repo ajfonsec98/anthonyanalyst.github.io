@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anthony Analyst — Global Equity Research</title>
+  <meta name="description" content="Independent global equity analyst. Small-caps, M&A, due diligence and investment consulting. Guayaquil, Ecuador." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body { font-family: 'Space Grotesk', sans-serif; background: #060809; color: #c8d0d9; min-height: 100vh; }
+    a { text-decoration: none; color: inherit; }
+
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 40px; border-bottom: 0.5px solid #1e2730;
+      position: sticky; top: 0; background: #060809; z-index: 100;
+    }
+    .nav-logo { font-family: 'Space Mono', monospace; font-size: 13px; color: #4ade80; letter-spacing: 0.05em; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a { font-size: 12px; color: #6b7a8d; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: color 0.15s; }
+    .nav-links a:hover { color: #c8d0d9; }
+
+    .lang-toggle {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      background: transparent; border: 0.5px solid #2e3a47;
+      color: #6b7a8d; padding: 6px 12px; border-radius: 4px;
+      cursor: pointer; letter-spacing: 0.05em; transition: border-color 0.15s, color 0.15s;
+    }
+    .lang-toggle:hover { border-color: #4ade80; color: #4ade80; }
+
+    .nav-cta {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      background: transparent; border: 0.5px solid #4ade80;
+      color: #4ade80; padding: 8px 18px; border-radius: 4px;
+      cursor: pointer; letter-spacing: 0.05em; transition: background 0.15s;
+    }
+    .nav-cta:hover { background: #4ade8015; }
+
+    .ticker-bar {
+      background: #040607; padding: 8px 40px;
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      display: flex; gap: 32px; border-bottom: 0.5px solid #1e2730; overflow-x: auto;
+    }
+    .ticker-item { display: flex; gap: 7px; color: #6b7a8d; white-space: nowrap; }
+    .ticker-item .sym { color: #c8d0d9; }
+    .ticker-item .pos { color: #4ade80; }
+    .ticker-item .neg { color: #f87171; }
+
+    .hero { padding: 72px 40px 56px; border-bottom: 0.5px solid #1e2730; max-width: 900px; }
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace; font-size: 11px; color: #4ade80;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 0.5px; background: #4ade80; }
+    .hero-title { font-size: 48px; font-weight: 600; color: #edf0f3; line-height: 1.1; margin-bottom: 20px; }
+    .hero-title span { color: #4ade80; }
+    .hero-sub { font-size: 16px; color: #6b7a8d; max-width: 500px; line-height: 1.7; margin-bottom: 36px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      font-family: 'Space Mono', monospace; font-size: 12px;
+      background: #4ade80; color: #060809; border: none;
+      padding: 13px 26px; border-radius: 4px; cursor: pointer;
+      font-weight: 700; letter-spacing: 0.04em; transition: background 0.15s;
+    }
+    .btn-primary:hover { background: #22c55e; }
+    .btn-secondary {
+      font-family: 'Space Mono', monospace; font-size: 12px;
+      background: transparent; color: #c8d0d9; border: 0.5px solid #2e3a47;
+      padding: 13px 26px; border-radius: 4px; cursor: pointer;
+      letter-spacing: 0.04em; transition: border-color 0.15s, color 0.15s;
+    }
+    .btn-secondary:hover { border-color: #4ade80; color: #4ade80; }
+
+    .section { padding: 48px 40px; border-bottom: 0.5px solid #1e2730; }
+    .section-label { font-family: 'Space Mono', monospace; font-size: 10px; color: #4ade80; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
+
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+    .service-card { background: #0a0d10; border: 0.5px solid #1e2730; border-radius: 8px; padding: 22px; transition: border-color 0.15s; }
+    .service-card:hover { border-color: #2e3a47; }
+    .service-icon { font-size: 20px; color: #4ade80; margin-bottom: 12px; }
+    .service-title { font-size: 14px; font-weight: 500; color: #edf0f3; margin-bottom: 8px; }
+    .service-desc { font-size: 13px; color: #6b7a8d; line-height: 1.6; }
+
+    .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 32px; }
+    .stat-card { background: #040607; border: 0.5px solid #1e2730; border-radius: 6px; padding: 16px 18px; }
+    .stat-num { font-family: 'Space Mono', monospace; font-size: 22px; color: #edf0f3; font-weight: 700; }
+    .stat-label { font-size: 11px; color: #6b7a8d; margin-top: 4px; }
+
+    .theses-grid { display: flex; flex-direction: column; gap: 10px; }
+    .thesis-row {
+      background: #0a0d10; border: 0.5px solid #1e2730; border-radius: 6px;
+      padding: 16px 20px; display: flex; align-items: flex-start; gap: 18px;
+      cursor: pointer; transition: border-color 0.15s;
+    }
+    .thesis-row:hover { border-color: #2e3a47; }
+    .thesis-ticker { font-family: 'Space Mono', monospace; font-size: 12px; color: #4ade80; min-width: 56px; padding-top: 2px; }
+    .thesis-body { flex: 1; }
+    .thesis-title { font-size: 14px; font-weight: 500; color: #edf0f3; margin-bottom: 5px; }
+    .thesis-meta { font-size: 11px; color: #6b7a8d; font-family: 'Space Mono', monospace; }
+    .thesis-tag { font-size: 10px; font-family: 'Space Mono', monospace; padding: 4px 10px; border-radius: 3px; white-space: nowrap; align-self: center; }
+    .tag-bull { background: #4ade8015; color: #4ade80; border: 0.5px solid #4ade8030; }
+    .tag-ma   { background: #60a5fa15; color: #60a5fa; border: 0.5px solid #60a5fa30; }
+    .tag-cat  { background: #c084fc15; color: #c084fc; border: 0.5px solid #c084fc30; }
+
+    .contact-block {
+      background: #0a0d10; border: 0.5px solid #1e2730; border-radius: 8px;
+      padding: 32px; display: flex; align-items: center;
+      justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .contact-text { flex: 1; min-width: 220px; }
+    .contact-title { font-size: 18px; font-weight: 500; color: #edf0f3; margin-bottom: 8px; }
+    .contact-sub { font-size: 14px; color: #6b7a8d; line-height: 1.6; }
+    .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    footer { padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .footer-left { font-family: 'Space Mono', monospace; font-size: 10px; color: #2e3a47; }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a { font-size: 11px; color: #2e3a47; transition: color 0.15s; }
+    .footer-links a:hover { color: #6b7a8d; }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 48px 20px 40px; }
+      .hero-title { font-size: 30px; }
+      .section { padding: 36px 20px; }
+      .ticker-bar { padding: 8px 20px; }
+      footer { padding: 16px 20px; }
+      .contact-block { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">ANTHONY ANALYST_</div>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a onclick="scrollTo('servicios')" data-es="Servicios" data-en="Services">Servicios</a>
+        <a onclick="scrollTo('tesis')" data-es="Tesis" data-en="Theses">Tesis</a>
+        <a onclick="scrollTo('contacto')" data-es="Newsletter" data-en="Newsletter">Newsletter</a>
+      </div>
+      <button class="lang-toggle" id="langBtn" onclick="toggleLang()">EN</button>
+      <button class="nav-cta" onclick="scrollTo('contacto')" data-es="[ Contratar ]" data-en="[ Hire me ]">[ Contratar ]</button>
+    </div>
+  </nav>
+
+  <div class="ticker-bar">
+    <div class="ticker-item"><span class="sym">OXY</span><span class="pos">+1.24%</span></div>
+    <div class="ticker-item"><span class="sym">ABVX</span><span class="pos">+3.87%</span></div>
+    <div class="ticker-item"><span class="sym">CELC</span><span class="neg">-0.54%</span></div>
+    <div class="ticker-item"><span class="sym">BRK.B</span><span class="pos">+0.31%</span></div>
+    <div class="ticker-item"><span class="sym">STRN</span><span class="pos">+2.10%</span></div>
+    <div class="ticker-item"><span class="sym">MBRX</span><span class="neg">-1.22%</span></div>
+  </div>
+
+  <section class="hero">
+    <div class="hero-eyebrow" data-es="Analista de renta variable global — Guayaquil, Ecuador" data-en="Global equity analyst — Guayaquil, Ecuador">Analista de renta variable global — Guayaquil, Ecuador</div>
+    <h1 class="hero-title" data-es="Inversiones globales con<br><span>tesis propias.</span>" data-en="Global equities.<br><span>Independent views.</span>">Inversiones globales con<br><span>tesis propias.</span></h1>
+    <p class="hero-sub" data-es="Análisis independiente de acciones globales: small-caps con catalizadores binarios, candidatos a adquisición, y oportunidades fuera del consenso. Disponible para proyectos, due diligence y consultoría." data-en="Independent global equity research: binary catalyst small-caps, M&A targets, and off-consensus opportunities. Available for projects, due diligence and consulting.">Análisis independiente de acciones globales: small-caps con catalizadores binarios, candidatos a adquisición, y oportunidades fuera del consenso. Disponible para proyectos, due diligence y consultoría.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="scrollTo('contacto')" data-es="Contratar servicios" data-en="Hire me">Contratar servicios</button>
+      <button class="btn-secondary" onclick="scrollTo('tesis')" data-es="Ver tesis →" data-en="View theses →">Ver tesis →</button>
+    </div>
+  </section>
+
+  <section class="section" id="servicios">
+    <div class="section-label">// <span data-es="Servicios" data-en="Services">Servicios</span></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-search" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Research por encargo" data-en="Custom research">Research por encargo</div>
+        <div class="service-desc" data-es="Análisis profundo de una empresa o sector. Memo ejecutivo + valoración." data-en="Deep-dive on a company or sector. Executive memo + valuation.">Análisis profundo de una empresa o sector. Memo ejecutivo + valoración.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Due diligence" data-en="Due diligence">Due diligence</div>
+        <div class="service-desc" data-es="Evaluación pre-inversión: fundamentales, riesgos, catalizadores y comparables." data-en="Pre-investment evaluation: fundamentals, risks, catalysts and comps.">Evaluación pre-inversión: fundamentales, riesgos, catalizadores y comparables.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-chart-candle" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Screening de M&A" data-en="M&A screening">Screening de M&A</div>
+        <div class="service-desc" data-es="Identificación de candidatos a adquisición por sector, múltiplos y dinámicas estratégicas." data-en="Identifying acquisition targets by sector, multiples and strategic dynamics.">Identificación de candidatos a adquisición por sector, múltiplos y dinámicas estratégicas.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-radar" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Tracker de small-caps" data-en="Small-cap tracker">Tracker de small-caps</div>
+        <div class="service-desc" data-es="Monitoreo automatizado de movimientos inusuales en acciones de baja capitalización." data-en="Automated monitoring of unusual movements in small-cap stocks.">Monitoreo automatizado de movimientos inusuales en acciones de baja capitalización.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tesis">
+    <div class="section-label">// <span data-es="Tesis recientes" data-en="Recent theses">Tesis recientes</span></div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label" data-es="Tesis publicadas" data-en="Published theses">Tesis publicadas</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label" data-es="Sectores cubiertos" data-en="Sectors covered">Sectores cubiertos</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label" data-es="Años de análisis" data-en="Years of analysis">Años de análisis</div></div>
+      <div class="stat-card"><div class="stat-num">Global</div><div class="stat-label" data-es="Cobertura geográfica" data-en="Geographic coverage">Cobertura geográfica</div></div>
+    </div>
+    <div class="theses-grid">
+      <div class="thesis-row">
+        <div class="thesis-ticker">OXY</div>
+        <div class="thesis-body">
+          <div class="thesis-title" data-es="Occidental Petroleum — el candidato más probable de Berkshire" data-en="Occidental Petroleum — Berkshire's most likely acquisition target">Occidental Petroleum — el candidato más probable de Berkshire</div>
+          <div class="thesis-meta" data-es="Renta variable EE.UU. · Energía · 2025" data-en="US Equities · Energy · 2025">Renta variable EE.UU. · Energía · 2025</div>
+        </div>
+        <span class="thesis-tag tag-ma">M&A</span>
+      </div>
+      <div class="thesis-row">
+        <div class="thesis-ticker">ABVX</div>
+        <div class="thesis-body">
+          <div class="thesis-title" data-es="Abivax — catalizador binario fase 3 y asimetría de retorno" data-en="Abivax — phase 3 binary catalyst and return asymmetry">Abivax — catalizador binario fase 3 y asimetría de retorno</div>
+          <div class="thesis-meta" data-es="Small-cap · Biotech · Europa · 2025" data-en="Small-cap · Biotech · Europe · 2025">Small-cap · Biotech · Europa · 2025</div>
+        </div>
+        <span class="thesis-tag tag-cat" data-es="Catalizador" data-en="Catalyst">Catalizador</span>
+      </div>
+      <div class="thesis-row">
+        <div class="thesis-ticker">CELC</div>
+        <div class="thesis-body">
+          <div class="thesis-title" data-es="Celcuity — oncología de precisión con readout pendiente" data-en="Celcuity — precision oncology with pending readout">Celcuity — oncología de precisión con readout pendiente</div>
+          <div class="thesis-meta" data-es="Small-cap · Biotech · EE.UU. · 2026" data-en="Small-cap · Biotech · US · 2026">Small-cap · Biotech · EE.UU. · 2026</div>
+        </div>
+        <span class="thesis-tag tag-cat" data-es="Catalizador" data-en="Catalyst">Catalizador</span>
+      </div>
+      <div class="thesis-row">
+        <div class="thesis-ticker">IVA</div>
+        <div class="thesis-body">
+          <div class="thesis-title" data-es="Inventiva — pipeline NASH en fase avanzada, descuento injustificado" data-en="Inventiva — advanced NASH pipeline, unjustified discount">Inventiva — pipeline NASH en fase avanzada, descuento injustificado</div>
+          <div class="thesis-meta" data-es="Small-cap · Biotech · Francia · 2025" data-en="Small-cap · Biotech · France · 2025">Small-cap · Biotech · Francia · 2025</div>
+        </div>
+        <span class="thesis-tag tag-bull" data-es="Largo" data-en="Long">Largo</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contacto">
+    <div class="section-label">// <span data-es="Contacto" data-en="Contact">Contacto</span></div>
+    <div class="contact-block">
+      <div class="contact-text">
+        <div class="contact-title" data-es="¿Tienes un proyecto de análisis?" data-en="Got a research project?">¿Tienes un proyecto de análisis?</div>
+        <div class="contact-sub" data-es="Disponible para due diligence, research por encargo y consultoría de inversión. Respuesta en menos de 24 horas." data-en="Available for due diligence, custom research and investment consulting. Response within 24 hours.">Disponible para due diligence, research por encargo y consultoría de inversión. Respuesta en menos de 24 horas.</div>
+      </div>
+      <div class="contact-actions">
+        <a href="mailto:tu@email.com"><button class="btn-primary" data-es="Escribir propuesta" data-en="Send a proposal">Escribir propuesta</button></a>
+        <a href="https://benchmarkecuador.substack.com" target="_blank"><button class="btn-secondary" data-es="Ver newsletter →" data-en="View newsletter →">Ver newsletter →</button></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-left">© 2026 Anthony Analyst · Guayaquil, Ecuador</div>
+    <div class="footer-links">
+      <a href="https://benchmarkecuador.substack.com" target="_blank">Substack</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+  </footer>
+
+  <script>
+    var lang = 'es';
+
+    function scrollTo(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function toggleLang() {
+      lang = lang === 'es' ? 'en' : 'es';
+      document.getElementById('langBtn').textContent = lang === 'es' ? 'EN' : 'ES';
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-es]').forEach(function(el) {
+        var text = el.getAttribute('data-' + lang);
+        if (text) el.innerHTML = text;
+      });
+    }
+  </script>
+
+</body>
+</html>
