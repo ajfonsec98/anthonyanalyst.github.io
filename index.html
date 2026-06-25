@@ -110,6 +110,70 @@
     .tag-ma   { background: #60a5fa15; color: #60a5fa; border: 0.5px solid #60a5fa30; }
     .tag-cat  { background: #c084fc15; color: #c084fc; border: 0.5px solid #c084fc30; }
 
+    /* === RESEARCH CARD === */
+    .research-card {
+      background: #0a0d10;
+      border: 0.5px solid #1e2730;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 520px;
+      margin-bottom: 10px;
+    }
+    .rc-header {
+      background: #0f1f38;
+      border-bottom: 0.5px solid #1e3a5f;
+      padding: 16px 20px 14px;
+    }
+    .rc-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      color: #4a90c4; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .rc-title {
+      font-size: 15px; font-weight: 600; color: #edf0f3; line-height: 1.35; margin-bottom: 4px;
+    }
+    .rc-subtitle { font-size: 12px; color: #6b9ec4; }
+    .rc-tickers {
+      display: flex; gap: 6px; padding: 10px 20px;
+      border-bottom: 0.5px solid #1e2730; flex-wrap: wrap;
+    }
+    .rc-ticker {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      padding: 3px 8px; border-radius: 3px;
+      background: #0f1f3830; color: #4ade80;
+      border: 0.5px solid #4ade8030;
+    }
+    .rc-rows { padding: 10px 20px; border-bottom: 0.5px solid #1e2730; }
+    .rc-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 6px 0; border-bottom: 0.5px solid #1e2730;
+    }
+    .rc-row:last-child { border-bottom: none; }
+    .rc-num {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      color: #4ade80; background: #4ade8010;
+      border: 0.5px solid #4ade8025;
+      border-radius: 3px; padding: 2px 6px;
+      min-width: 22px; text-align: center; margin-top: 1px;
+    }
+    .rc-text { font-size: 12px; color: #6b7a8d; line-height: 1.45; }
+    .rc-text strong { color: #c8d0d9; font-weight: 500; }
+    .rc-footer {
+      padding: 10px 20px; display: flex;
+      align-items: center; justify-content: space-between;
+    }
+    .rc-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: #2e3a47; }
+    .rc-meta span { color: #6b7a8d; }
+    .rc-btn {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      display: flex; align-items: center; gap: 6px;
+      background: #4ade8015; color: #4ade80;
+      border: 0.5px solid #4ade8030;
+      border-radius: 4px; padding: 6px 14px;
+      cursor: pointer; transition: background 0.15s; text-decoration: none;
+    }
+    .rc-btn:hover { background: #4ade8025; }
+
     .contact-block {
       background: #0a0d10; border: 0.5px solid #1e2730; border-radius: 8px;
       padding: 32px; display: flex; align-items: center;
@@ -158,7 +222,8 @@
     <div class="ticker-item"><span class="sym">ABVX</span><span class="pos">+3.87%</span></div>
     <div class="ticker-item"><span class="sym">CELC</span><span class="neg">-0.54%</span></div>
     <div class="ticker-item"><span class="sym">BRK.B</span><span class="pos">+0.31%</span></div>
-    <div class="ticker-item"><span class="sym">STRN</span><span class="pos">+2.10%</span></div>
+    <div class="ticker-item"><span class="sym">NEE</span><span class="pos">+1.12%</span></div>
+    <div class="ticker-item"><span class="sym">FCX</span><span class="pos">+2.10%</span></div>
     <div class="ticker-item"><span class="sym">MBRX</span><span class="neg">-1.22%</span></div>
   </div>
 
@@ -207,6 +272,49 @@
       <div class="stat-card"><div class="stat-num">Global</div><div class="stat-label" data-es="Cobertura geográfica" data-en="Geographic coverage">Cobertura geográfica</div></div>
     </div>
     <div class="theses-grid">
+
+      <!-- RESEARCH CARD: Berkshire -->
+      <div class="research-card">
+        <div class="rc-header">
+          <div class="rc-tag">Investigación · Benchmark Ecuador</div>
+          <div class="rc-title">El 4to Gran Despliegue de Berkshire Hathaway</div>
+          <div class="rc-subtitle">La Soberanía Física como nuevo paradigma de capital · 2026</div>
+        </div>
+        <div class="rc-tickers">
+          <span class="rc-ticker">BRK.B</span>
+          <span class="rc-ticker">NEE</span>
+          <span class="rc-ticker">FCX</span>
+          <span class="rc-ticker">CCJ</span>
+          <span class="rc-ticker">BHP</span>
+          <span class="rc-ticker">USD/JPY</span>
+        </div>
+        <div class="rc-rows">
+          <div class="rc-row">
+            <span class="rc-num">I</span>
+            <span class="rc-text"><strong>Despliegue Berkshire</strong> — $200B en efectivo. Greg Abel apunta a infraestructura energética en Q4 2026.</span>
+          </div>
+          <div class="rc-row">
+            <span class="rc-num">II</span>
+            <span class="rc-text"><strong>Carry Trade Japón</strong> — Repatriación de +$500B si BoJ sube tipos al 1.5%.</span>
+          </div>
+          <div class="rc-row">
+            <span class="rc-num">III</span>
+            <span class="rc-text"><strong>Burbuja tech</strong> — Crisis de centros de datos vacíos. Fecha crítica: octubre 2026.</span>
+          </div>
+          <div class="rc-row">
+            <span class="rc-num">IV</span>
+            <span class="rc-text"><strong>Soberanía Física</strong> — NEE, FCX, CCJ y BHP: las "venas y arterias" de la IA.</span>
+          </div>
+        </div>
+        <div class="rc-footer">
+          <div class="rc-meta">Anthony Fonseca · <span>Jun 2026</span></div>
+          <a class="rc-btn" href="Tesis_4to_Despliegue_Berkshire.pdf" target="_blank">
+            <i class="ti ti-file-download" aria-hidden="true"></i> Descargar PDF
+          </a>
+        </div>
+      </div>
+      <!-- FIN RESEARCH CARD -->
+
       <a href="https://open.substack.com/pub/benchmarkecuador/p/deep-fission?r=8k5upd&utm_campaign=post&utm_medium=web" target="_blank" style="text-decoration:none">
       <div class="thesis-row">
         <div class="thesis-ticker">DEEP<br>FISSION</div>
