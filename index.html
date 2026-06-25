@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     body { font-family: 'Space Grotesk', sans-serif; background: #060809; color: #c8d0d9; min-height: 100vh; }
     a { text-decoration: none; color: inherit; }
 
@@ -25,7 +24,6 @@
     .nav-links { display: flex; gap: 28px; }
     .nav-links a { font-size: 12px; color: #6b7a8d; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: color 0.15s; }
     .nav-links a:hover { color: #c8d0d9; }
-
     .lang-toggle {
       font-family: 'Space Mono', monospace; font-size: 11px;
       background: transparent; border: 0.5px solid #2e3a47;
@@ -33,7 +31,6 @@
       cursor: pointer; letter-spacing: 0.05em; transition: border-color 0.15s, color 0.15s;
     }
     .lang-toggle:hover { border-color: #4ade80; color: #4ade80; }
-
     .nav-cta {
       font-family: 'Space Mono', monospace; font-size: 11px;
       background: transparent; border: 0.5px solid #4ade80;
@@ -52,7 +49,17 @@
     .ticker-item .pos { color: #4ade80; }
     .ticker-item .neg { color: #f87171; }
 
-    .hero { padding: 72px 40px 56px; border-bottom: 0.5px solid #1e2730; max-width: 900px; }
+    /* HERO — dos columnas */
+    .hero {
+      padding: 72px 40px 56px;
+      border-bottom: 0.5px solid #1e2730;
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .hero-left { flex: 1; min-width: 0; }
+    .hero-right { flex: 0 0 auto; width: 420px; }
+
     .hero-eyebrow {
       font-family: 'Space Mono', monospace; font-size: 11px; color: #4ade80;
       letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 20px;
@@ -78,6 +85,66 @@
       letter-spacing: 0.04em; transition: border-color 0.15s, color 0.15s;
     }
     .btn-secondary:hover { border-color: #4ade80; color: #4ade80; }
+
+    /* RESEARCH CARD */
+    .research-card {
+      background: #0a0d10;
+      border: 0.5px solid #1e3a5f;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .rc-header {
+      background: #0f1f38;
+      border-bottom: 0.5px solid #1e3a5f;
+      padding: 16px 20px 14px;
+    }
+    .rc-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      color: #4a90c4; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .rc-title { font-size: 15px; font-weight: 600; color: #edf0f3; line-height: 1.35; margin-bottom: 4px; }
+    .rc-subtitle { font-size: 12px; color: #6b9ec4; }
+    .rc-tickers {
+      display: flex; gap: 6px; padding: 10px 20px;
+      border-bottom: 0.5px solid #1e2730; flex-wrap: wrap;
+    }
+    .rc-ticker {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      padding: 3px 8px; border-radius: 3px;
+      background: #4ade8008; color: #4ade80;
+      border: 0.5px solid #4ade8030;
+    }
+    .rc-rows { padding: 10px 20px; border-bottom: 0.5px solid #1e2730; }
+    .rc-row {
+      display: flex; align-items: flex-start; gap: 10px;
+      padding: 6px 0; border-bottom: 0.5px solid #1e2730;
+    }
+    .rc-row:last-child { border-bottom: none; }
+    .rc-num {
+      font-family: 'Space Mono', monospace; font-size: 10px;
+      color: #4ade80; background: #4ade8010;
+      border: 0.5px solid #4ade8025;
+      border-radius: 3px; padding: 2px 6px;
+      min-width: 22px; text-align: center; margin-top: 1px; flex-shrink: 0;
+    }
+    .rc-text { font-size: 12px; color: #6b7a8d; line-height: 1.45; }
+    .rc-text strong { color: #c8d0d9; font-weight: 500; }
+    .rc-footer {
+      padding: 10px 20px; display: flex;
+      align-items: center; justify-content: space-between;
+    }
+    .rc-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: #2e3a47; }
+    .rc-meta span { color: #6b7a8d; }
+    .rc-btn {
+      font-family: 'Space Mono', monospace; font-size: 11px;
+      display: flex; align-items: center; gap: 6px;
+      background: #4ade8015; color: #4ade80;
+      border: 0.5px solid #4ade8030;
+      border-radius: 4px; padding: 6px 14px;
+      cursor: pointer; transition: background 0.15s; text-decoration: none;
+    }
+    .rc-btn:hover { background: #4ade8025; }
 
     .section { padding: 48px 40px; border-bottom: 0.5px solid #1e2730; }
     .section-label { font-family: 'Space Mono', monospace; font-size: 10px; color: #4ade80; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
@@ -110,70 +177,6 @@
     .tag-ma   { background: #60a5fa15; color: #60a5fa; border: 0.5px solid #60a5fa30; }
     .tag-cat  { background: #c084fc15; color: #c084fc; border: 0.5px solid #c084fc30; }
 
-    /* === RESEARCH CARD === */
-    .research-card {
-      background: #0a0d10;
-      border: 0.5px solid #1e2730;
-      border-radius: 8px;
-      overflow: hidden;
-      max-width: 520px;
-      margin-bottom: 10px;
-    }
-    .rc-header {
-      background: #0f1f38;
-      border-bottom: 0.5px solid #1e3a5f;
-      padding: 16px 20px 14px;
-    }
-    .rc-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 10px; letter-spacing: 0.1em;
-      color: #4a90c4; text-transform: uppercase; margin-bottom: 6px;
-    }
-    .rc-title {
-      font-size: 15px; font-weight: 600; color: #edf0f3; line-height: 1.35; margin-bottom: 4px;
-    }
-    .rc-subtitle { font-size: 12px; color: #6b9ec4; }
-    .rc-tickers {
-      display: flex; gap: 6px; padding: 10px 20px;
-      border-bottom: 0.5px solid #1e2730; flex-wrap: wrap;
-    }
-    .rc-ticker {
-      font-family: 'Space Mono', monospace; font-size: 11px;
-      padding: 3px 8px; border-radius: 3px;
-      background: #0f1f3830; color: #4ade80;
-      border: 0.5px solid #4ade8030;
-    }
-    .rc-rows { padding: 10px 20px; border-bottom: 0.5px solid #1e2730; }
-    .rc-row {
-      display: flex; align-items: flex-start; gap: 10px;
-      padding: 6px 0; border-bottom: 0.5px solid #1e2730;
-    }
-    .rc-row:last-child { border-bottom: none; }
-    .rc-num {
-      font-family: 'Space Mono', monospace; font-size: 10px;
-      color: #4ade80; background: #4ade8010;
-      border: 0.5px solid #4ade8025;
-      border-radius: 3px; padding: 2px 6px;
-      min-width: 22px; text-align: center; margin-top: 1px;
-    }
-    .rc-text { font-size: 12px; color: #6b7a8d; line-height: 1.45; }
-    .rc-text strong { color: #c8d0d9; font-weight: 500; }
-    .rc-footer {
-      padding: 10px 20px; display: flex;
-      align-items: center; justify-content: space-between;
-    }
-    .rc-meta { font-family: 'Space Mono', monospace; font-size: 10px; color: #2e3a47; }
-    .rc-meta span { color: #6b7a8d; }
-    .rc-btn {
-      font-family: 'Space Mono', monospace; font-size: 11px;
-      display: flex; align-items: center; gap: 6px;
-      background: #4ade8015; color: #4ade80;
-      border: 0.5px solid #4ade8030;
-      border-radius: 4px; padding: 6px 14px;
-      cursor: pointer; transition: background 0.15s; text-decoration: none;
-    }
-    .rc-btn:hover { background: #4ade8025; }
-
     .contact-block {
       background: #0a0d10; border: 0.5px solid #1e2730; border-radius: 8px;
       padding: 32px; display: flex; align-items: center;
@@ -190,6 +193,10 @@
     .footer-links a { font-size: 11px; color: #2e3a47; transition: color 0.15s; }
     .footer-links a:hover { color: #6b7a8d; }
 
+    @media (max-width: 900px) {
+      .hero { flex-direction: column; gap: 40px; }
+      .hero-right { width: 100%; }
+    }
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
@@ -228,52 +235,17 @@
   </div>
 
   <section class="hero">
-    <div class="hero-eyebrow" data-es="Analista de renta variable global — Guayaquil, Ecuador" data-en="Global equity analyst — Guayaquil, Ecuador">Analista de renta variable global — Guayaquil, Ecuador</div>
-    <h1 class="hero-title" data-es="Inversiones globales con<br><span>tesis propias.</span>" data-en="Global equities.<br><span>Independent views.</span>">Inversiones globales con<br><span>tesis propias.</span></h1>
-    <p class="hero-sub" data-es="Análisis independiente de acciones globales: small-caps con catalizadores binarios, candidatos a adquisición, y oportunidades fuera del consenso. Disponible para proyectos, due diligence y consultoría." data-en="Independent global equity research: binary catalyst small-caps, M&A targets, and off-consensus opportunities. Available for projects, due diligence and consulting.">Análisis independiente de acciones globales: small-caps con catalizadores binarios, candidatos a adquisición, y oportunidades fuera del consenso. Disponible para proyectos, due diligence y consultoría.</p>
-    <div class="hero-actions">
-      <button class="btn-primary" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScAw5TB_nEz6e0mBhShILeZAtA1Syb9n8njkPSKnM75XxoWdA/viewform?usp=publish-editor','_blank')" data-es="Contratar servicios" data-en="Hire me">Contratar servicios</button>
-      <button class="btn-secondary" onclick="window.open('https://benchmarkecuador.substack.com','_blank')" data-es="Ver tesis →" data-en="View theses →">Ver tesis →</button>
-    </div>
-  </section>
-
-  <section class="section" id="servicios">
-    <div class="section-label">// <span data-es="Servicios" data-en="Services">Servicios</span></div>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-search" aria-hidden="true"></i></div>
-        <div class="service-title" data-es="Research por encargo" data-en="Custom research">Research por encargo</div>
-        <div class="service-desc" data-es="Análisis profundo de una empresa o sector. Memo ejecutivo + valoración." data-en="Deep-dive on a company or sector. Executive memo + valuation.">Análisis profundo de una empresa o sector. Memo ejecutivo + valoración.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
-        <div class="service-title" data-es="Due diligence" data-en="Due diligence">Due diligence</div>
-        <div class="service-desc" data-es="Evaluación pre-inversión: fundamentales, riesgos, catalizadores y comparables." data-en="Pre-investment evaluation: fundamentals, risks, catalysts and comps.">Evaluación pre-inversión: fundamentales, riesgos, catalizadores y comparables.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-chart-candle" aria-hidden="true"></i></div>
-        <div class="service-title" data-es="Screening de M&A" data-en="M&A screening">Screening de M&A</div>
-        <div class="service-desc" data-es="Identificación de candidatos a adquisición por sector, múltiplos y dinámicas estratégicas." data-en="Identifying acquisition targets by sector, multiples and strategic dynamics.">Identificación de candidatos a adquisición por sector, múltiplos y dinámicas estratégicas.</div>
-      </div>
-      <div class="service-card">
-        <div class="service-icon"><i class="ti ti-radar" aria-hidden="true"></i></div>
-        <div class="service-title" data-es="Tracker de small-caps" data-en="Small-cap tracker">Tracker de small-caps</div>
-        <div class="service-desc" data-es="Monitoreo automatizado de movimientos inusuales en acciones de baja capitalización." data-en="Automated monitoring of unusual movements in small-cap stocks.">Monitoreo automatizado de movimientos inusuales en acciones de baja capitalización.</div>
+    <div class="hero-left">
+      <div class="hero-eyebrow" data-es="Analista de renta variable global — Guayaquil, Ecuador" data-en="Global equity analyst — Guayaquil, Ecuador">Analista de renta variable global — Guayaquil, Ecuador</div>
+      <h1 class="hero-title" data-es="Inversiones globales con<br><span>tesis propias.</span>" data-en="Global equities.<br><span>Independent views.</span>">Inversiones globales con<br><span>tesis propias.</span></h1>
+      <p class="hero-sub" data-es="Análisis independiente de acciones globales: small-caps con catalizadores binarios, candidatos a adquisición, y oportunidades fuera del consenso. Disponible para proyectos, due diligence y consultoría." data-en="Independent global equity research: binary catalyst small-caps, M&A targets, and off-consensus opportunities. Available for projects, due diligence and consulting.">Análisis independiente de acciones globales: small-caps con catalizadores binarios, candidatos a adquisición, y oportunidades fuera del consenso. Disponible para proyectos, due diligence y consultoría.</p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLScAw5TB_nEz6e0mBhShILeZAtA1Syb9n8njkPSKnM75XxoWdA/viewform?usp=publish-editor','_blank')" data-es="Contratar servicios" data-en="Hire me">Contratar servicios</button>
+        <button class="btn-secondary" onclick="window.open('https://benchmarkecuador.substack.com','_blank')" data-es="Ver tesis →" data-en="View theses →">Ver tesis →</button>
       </div>
     </div>
-  </section>
 
-  <section class="section" id="tesis">
-    <div class="section-label">// <span data-es="Tesis recientes" data-en="Recent theses">Tesis recientes</span></div>
-    <div class="stat-row">
-      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label" data-es="Tesis publicadas" data-en="Published theses">Tesis publicadas</div></div>
-      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label" data-es="Sectores cubiertos" data-en="Sectors covered">Sectores cubiertos</div></div>
-      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label" data-es="Años de análisis" data-en="Years of analysis">Años de análisis</div></div>
-      <div class="stat-card"><div class="stat-num">Global</div><div class="stat-label" data-es="Cobertura geográfica" data-en="Geographic coverage">Cobertura geográfica</div></div>
-    </div>
-    <div class="theses-grid">
-
-      <!-- RESEARCH CARD: Berkshire -->
+    <div class="hero-right">
       <div class="research-card">
         <div class="rc-header">
           <div class="rc-tag">Investigación · Benchmark Ecuador</div>
@@ -313,22 +285,58 @@
           </a>
         </div>
       </div>
-      <!-- FIN RESEARCH CARD -->
+    </div>
+  </section>
 
-      <a href="https://open.substack.com/pub/benchmarkecuador/p/deep-fission?r=8k5upd&utm_campaign=post&utm_medium=web" target="_blank" style="text-decoration:none">
-      <div class="thesis-row">
-        <div class="thesis-ticker">DEEP<br>FISSION</div>
-        <div class="thesis-body">
-          <div class="thesis-title" data-es="Deep Fission — energía nuclear small-cap con catalizador estructural" data-en="Deep Fission — nuclear energy small-cap with structural catalyst">Deep Fission — energía nuclear small-cap con catalizador estructural</div>
-          <div class="thesis-meta" data-es="Small-cap · Energía nuclear · 2026 · Publicado en Substack" data-en="Small-cap · Nuclear energy · 2026 · Published on Substack">Small-cap · Energía nuclear · 2026 · Publicado en Substack</div>
-        </div>
-        <span class="thesis-tag tag-bull" data-es="Largo" data-en="Long">Largo</span>
+  <section class="section" id="servicios">
+    <div class="section-label">// <span data-es="Servicios" data-en="Services">Servicios</span></div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-search" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Research por encargo" data-en="Custom research">Research por encargo</div>
+        <div class="service-desc" data-es="Análisis profundo de una empresa o sector. Memo ejecutivo + valoración." data-en="Deep-dive on a company or sector. Executive memo + valuation.">Análisis profundo de una empresa o sector. Memo ejecutivo + valoración.</div>
       </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Due diligence" data-en="Due diligence">Due diligence</div>
+        <div class="service-desc" data-es="Evaluación pre-inversión: fundamentales, riesgos, catalizadores y comparables." data-en="Pre-investment evaluation: fundamentals, risks, catalysts and comps.">Evaluación pre-inversión: fundamentales, riesgos, catalizadores y comparables.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-chart-candle" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Screening de M&A" data-en="M&A screening">Screening de M&A</div>
+        <div class="service-desc" data-es="Identificación de candidatos a adquisición por sector, múltiplos y dinámicas estratégicas." data-en="Identifying acquisition targets by sector, multiples and strategic dynamics.">Identificación de candidatos a adquisición por sector, múltiplos y dinámicas estratégicas.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="ti ti-radar" aria-hidden="true"></i></div>
+        <div class="service-title" data-es="Tracker de small-caps" data-en="Small-cap tracker">Tracker de small-caps</div>
+        <div class="service-desc" data-es="Monitoreo automatizado de movimientos inusuales en acciones de baja capitalización." data-en="Automated monitoring of unusual movements in small-cap stocks.">Monitoreo automatizado de movimientos inusuales en acciones de baja capitalización.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="tesis">
+    <div class="section-label">// <span data-es="Tesis recientes" data-en="Recent theses">Tesis recientes</span></div>
+    <div class="stat-row">
+      <div class="stat-card"><div class="stat-num">12+</div><div class="stat-label" data-es="Tesis publicadas" data-en="Published theses">Tesis publicadas</div></div>
+      <div class="stat-card"><div class="stat-num">4</div><div class="stat-label" data-es="Sectores cubiertos" data-en="Sectors covered">Sectores cubiertos</div></div>
+      <div class="stat-card"><div class="stat-num">3</div><div class="stat-label" data-es="Años de análisis" data-en="Years of analysis">Años de análisis</div></div>
+      <div class="stat-card"><div class="stat-num">Global</div><div class="stat-label" data-es="Cobertura geográfica" data-en="Geographic coverage">Cobertura geográfica</div></div>
+    </div>
+    <div class="theses-grid">
+      <a href="https://open.substack.com/pub/benchmarkecuador/p/deep-fission?r=8k5upd&utm_campaign=post&utm_medium=web" target="_blank" style="text-decoration:none">
+        <div class="thesis-row">
+          <div class="thesis-ticker">DEEP<br>FISSION</div>
+          <div class="thesis-body">
+            <div class="thesis-title" data-es="Deep Fission — energía nuclear small-cap con catalizador estructural" data-en="Deep Fission — nuclear energy small-cap with structural catalyst">Deep Fission — energía nuclear small-cap con catalizador estructural</div>
+            <div class="thesis-meta" data-es="Small-cap · Energía nuclear · 2026 · Publicado en Substack" data-en="Small-cap · Nuclear energy · 2026 · Published on Substack">Small-cap · Energía nuclear · 2026 · Publicado en Substack</div>
+          </div>
+          <span class="thesis-tag tag-bull" data-es="Largo" data-en="Long">Largo</span>
+        </div>
       </a>
       <a href="https://benchmarkecuador.substack.com" target="_blank" style="text-decoration:none">
-      <div class="thesis-row" style="border-style:dashed; justify-content:center; text-align:center; padding:14px;">
-        <div style="font-family:'Space Mono',monospace; font-size:12px; color:#6b7a8d;" data-es="Ver todas las tesis en Substack →" data-en="View all theses on Substack →">Ver todas las tesis en Substack →</div>
-      </div>
+        <div class="thesis-row" style="border-style:dashed; justify-content:center; text-align:center; padding:14px;">
+          <div style="font-family:'Space Mono',monospace; font-size:12px; color:#6b7a8d;" data-es="Ver todas las tesis en Substack →" data-en="View all theses on Substack →">Ver todas las tesis en Substack →</div>
+        </div>
       </a>
     </div>
   </section>
@@ -358,16 +366,13 @@
 
   <script>
     var lang = 'es';
-
     function scrollTo(id) {
       document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
     }
-
     function toggleLang() {
       lang = lang === 'es' ? 'en' : 'es';
       document.getElementById('langBtn').textContent = lang === 'es' ? 'EN' : 'ES';
       document.documentElement.lang = lang;
-
       document.querySelectorAll('[data-es]').forEach(function(el) {
         var text = el.getAttribute('data-' + lang);
         if (text) el.innerHTML = text;
