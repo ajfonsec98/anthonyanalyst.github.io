@@ -49,16 +49,21 @@
     .ticker-item .pos { color: #4ade80; }
     .ticker-item .neg { color: #f87171; }
 
-    /* HERO — dos columnas */
     .hero {
       padding: 72px 40px 56px;
       border-bottom: 0.5px solid #1e2730;
       display: flex;
-      align-items: center;
-      gap: 60px;
+      align-items: flex-start;
+      gap: 40px;
     }
     .hero-left { flex: 1; min-width: 0; }
-    .hero-right { flex: 0 0 auto; width: 420px; }
+    .hero-right {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 420px;
+    }
 
     .hero-eyebrow {
       font-family: 'Space Mono', monospace; font-size: 11px; color: #4ade80;
@@ -193,6 +198,32 @@
     .footer-links a { font-size: 11px; color: #2e3a47; transition: color 0.15s; }
     .footer-links a:hover { color: #6b7a8d; }
 
+    /* WIDGET HISTORIAL */
+    .wh{background:#0a0f1a;border:1px solid #00ff41;border-radius:4px;width:100%;font-family:'Courier New',Courier,monospace;display:flex;flex-direction:column;overflow:hidden;box-shadow:0 0 14px rgba(0,255,65,0.09)}
+    .wh-top{background:#020d06;border-bottom:1px solid #00ff41;padding:8px 12px 7px}
+    .wh-ey{font-size:8px;letter-spacing:2px;color:#00cc33;text-transform:uppercase;margin-bottom:2px}
+    .wh-ttl{font-size:13px;font-weight:bold;color:#00ff41;line-height:1.25}
+    .wh-b{padding:10px 12px 10px}
+    .wh-hdr{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+    .wh-nm{font-size:10.5px;font-weight:bold;color:#c8dcc8}
+    .wh-rl{font-size:8px;color:#4a9a7a}
+    .wh-sub{font-size:8px;color:#3a5a4a;margin-bottom:9px;line-height:1.45}
+    .wh-lbl{font-size:7.5px;letter-spacing:1.5px;text-transform:uppercase;color:#00cc33;margin-bottom:6px;border-bottom:1px solid #0d2418;padding-bottom:4px}
+    .wh-row{display:flex;justify-content:space-between;align-items:center;padding:3px 0;border-bottom:1px solid #091510}
+    .wh-row:last-of-type{border-bottom:none}
+    .wh-tck{font-size:8.5px;color:#4a7060}
+    .wh-cat{font-size:7px;color:#2a4030;margin-left:4px}
+    .wh-pct{font-size:11.5px;font-weight:bold;min-width:60px;text-align:right}
+    .wh-pct.g{color:#00ff41}
+    .wh-pct.a{color:#ffd700}
+    .wh-pct.r{color:#ff5555}
+    .wh-pct.b{color:#00bfff}
+    .wh-pct.c{color:#b0b0ff}
+    .wh-per{font-size:7px;letter-spacing:0.7px;color:#1a3020;text-align:center;margin:8px 0 10px}
+    .wh-btn{display:block;width:100%;padding:8px 0;background:transparent;border:1px solid #00ff41;border-radius:2px;color:#00ff41;font-family:'Courier New',Courier,monospace;font-size:9px;font-weight:bold;letter-spacing:1px;text-align:center;text-decoration:none;cursor:pointer;transition:background .14s,color .14s;box-sizing:border-box}
+    .wh-btn:hover{background:#00ff41;color:#000}
+    .wh-ft{padding:4px 12px 5px;border-top:1px solid #0a1e10;font-size:7px;color:#1a3020;letter-spacing:0.5px;text-align:center}
+
     @media (max-width: 900px) {
       .hero { flex-direction: column; gap: 40px; }
       .hero-right { width: 100%; }
@@ -246,6 +277,8 @@
     </div>
 
     <div class="hero-right">
+
+      <!-- Widget Berkshire (existente) -->
       <div class="research-card">
         <div class="rc-header">
           <div class="rc-tag">Investigación · Benchmark Ecuador</div>
@@ -285,6 +318,62 @@
           </a>
         </div>
       </div>
+
+      <!-- Widget Historial de Rendimientos (NUEVO) -->
+      <div class="wh">
+        <div class="wh-top">
+          <div class="wh-ey">Track Record · 2024–2026</div>
+          <div class="wh-ttl">Historial de<br>Rendimientos</div>
+        </div>
+        <div class="wh-b">
+          <div class="wh-hdr">
+            <span class="wh-nm">Anthony Fonseca</span>
+            <span class="wh-rl">Analista RV Global</span>
+          </div>
+          <div class="wh-sub">Renta variable global · small-caps · macro geopolítico · catalizadores binarios · Guayaquil, Ecuador</div>
+          <div class="wh-lbl">Llamadas verificadas</div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Oklo (OKLO)</span><span class="wh-cat">Nuclear</span></span>
+            <span class="wh-pct r">+2,175%</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Palantir (PLTR)</span><span class="wh-cat">IA</span></span>
+            <span class="wh-pct g">+340%</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Oro (XAU/USD)</span><span class="wh-cat">Refugio</span></span>
+            <span class="wh-pct a">+112%</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Constellation CEG</span><span class="wh-cat">Nuclear</span></span>
+            <span class="wh-pct c">+135%</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Centrus Energy LEU</span><span class="wh-cat">Nuclear</span></span>
+            <span class="wh-pct b">BUY ✓</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">SPY / QQQ</span><span class="wh-cat">ETF base</span></span>
+            <span class="wh-pct g">+23%</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Sirius XM (SIRI)</span><span class="wh-cat">Media</span></span>
+            <span class="wh-pct b">Sigue ↑</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">Oro meta $3,300 GS</span><span class="wh-cat">Macro</span></span>
+            <span class="wh-pct a">✓ Superado</span>
+          </div>
+          <div class="wh-row">
+            <span><span class="wh-tck">GNL Europa</span><span class="wh-cat">Macro</span></span>
+            <span class="wh-pct g">✓ Confirmado</span>
+          </div>
+          <div class="wh-per">JUL 2024 — JUN 2026 · datos públicos verificados</div>
+          <a class="wh-btn" href="AnthonyFonseca_HistorialRendimientos.pdf" download>↓ &nbsp;Descargar Historial PDF</a>
+        </div>
+        <div class="wh-ft">Investigación independiente · rendimientos no garantizan resultados futuros</div>
+      </div>
+
     </div>
   </section>
 
